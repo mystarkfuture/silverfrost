@@ -40,13 +40,6 @@ rpm-ostree install python3-pip
 rpm-ostree install libxcrypt-compat
 rpm-ostree override remove toolbox --install distrobox
 
-# Development
-rpm-ostree install code
-rpm-ostree install make
-rpm-ostree install python3-pip
-rpm-ostree install libxcrypt-compat
-rpm-ostree override remove toolbox --install distrobox
-
 # DE tools
 rpm-ostree install gnome-shell-extension-system-monitor
 rpm-ostree install gnome-shell-extension-appindicator
@@ -63,6 +56,11 @@ rpm-ostree install fastfetch
 # Entertainment tools
 rpm-ostree install vlc
 rpm-ostree install smplayer
+
+# Gaming utils
+if [ "$(rpm -E %{_arch})" = 'x86_64' ]; then
+    rpm-ostree install steam-devices
+fi
 
 #### Example for enabling a System Unit File
 
